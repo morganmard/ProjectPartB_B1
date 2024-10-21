@@ -28,6 +28,8 @@ class Program
 		/* Run the game 'NrOfRounds' times */
 		while (NrOfRounds-- > 0)
 		{
+			Console.WriteLine($"Round {NrOfRounds + 1}:");
+
 			/* Make sure we clear the deck before making a fresh one */
 			myDeck.Clear();
 			myDeck.CreateFreshDeck();
@@ -84,8 +86,8 @@ class Program
 
 	private static void DetermineWinner(HandOfCards player1, HandOfCards player2)
 	{
-		Console.WriteLine($"Player one's cards: {player1}");
-		Console.WriteLine($"Player one's cards: {player2}");
+		Console.WriteLine($"Player one has the following {player1.list.Count} cards: {player1}");
+		Console.WriteLine($"Player one has the following {player2.list.Count} cards: {player2}");
 
 		/* Check the highest card of both players and compare them */
 		int winner = player1.Highest.Value - player2.Highest.Value;
