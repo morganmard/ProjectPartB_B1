@@ -32,16 +32,13 @@ class DeckOfCards() : IDeckOfCards
 
 		/* We create a static instance of a cryptographic-secure rng inside the class RandomNumberGenerator */
 		RandomNumberGenerator.Create();
-		for (int a = 0; a < 1000000000; ++a)
+		for (int i = 0; i < Count; ++i)
 		{
-			for (int i = 0; i < Count; ++i)
-			{
-				/* Here we use the RandomNumberGenerator's internal rng to get a integer between 0 and i */
-				int j = RandomNumberGenerator.GetInt32(i + 1);
+			/* Here we use the RandomNumberGenerator's internal rng to get a integer between 0 and i */
+			int j = RandomNumberGenerator.GetInt32(i + 1);
 
-				/* Tuple swap */
-				(Deck[i], Deck[j]) = (Deck[j], Deck[i]);
-			}
+			/* Tuple swap */
+			(Deck[i], Deck[j]) = (Deck[j], Deck[i]);
 		}
 
 

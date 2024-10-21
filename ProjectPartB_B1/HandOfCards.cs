@@ -3,7 +3,7 @@
 class HandOfCards : DeckOfCards, IHandOfCards
 {
     /* A sorted-list of cards in our hand */
-    private readonly SortedSet<PlayingCard> list = [];
+    public readonly SortedSet<PlayingCard> list = [];
 
     public void Add(PlayingCard card)
     {

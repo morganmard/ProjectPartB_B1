@@ -26,7 +26,7 @@ class Program
 		int NrOfRounds = readNum("Enter number of rounds to play (1 - 5)");
 
 		/* Run the game 'NrOfRounds' times */
-		while (NrOfRounds-- > -1)
+		while (NrOfRounds-- > 0)
 		{
 			/* Make sure we clear the deck before making a fresh one */
 			myDeck.Clear();
@@ -67,15 +67,40 @@ class Program
 
 	private static void Deal(DeckOfCards myDeck, int nrCardsToPlayer, HandOfCards player1, HandOfCards player2)
 	{
+		Console.WriteLine();
 		for (int i = 0; i < nrCardsToPlayer; ++i)
 		{
-			player1.Add(myDeck.RemoveTopCard());
-			player2.Add(myDeck.RemoveTopCard());
+			var card = myDeck.RemoveTopCard();
+			Console.WriteLine($"Player one got dealt: {card}");
+			player1.Add(card);
+
+			card = myDeck.RemoveTopCard();
+			Console.WriteLine($"Player Two got dealt: {card}");
+			player2.Add(card);
+
+			Console.WriteLine();
 		}
+		Console.WriteLine();
 	}
 
 	private static void DetermineWinner(HandOfCards player1, HandOfCards player2)
 	{
+		Console.WriteLine("Player one's cards: ");
+		foreach (var card in player1.list)
+		{
+			Console.Write(card);
+			Console.Write(", ");
+		}
+
+		Console.WriteLine("\nPlayer two's cards:");
+
+		foreach (var card in player2.list)
+		{
+			Console.Write(card);
+			Console.Write(", ");
+		}
+		Console.WriteLine();
+
 		/* Check the highest card of both players and compare them */
 		int winner = player1.Highest.Value - player2.Highest.Value;
 
