@@ -13,4 +13,14 @@ class HandOfCards : DeckOfCards, IHandOfCards
     /* Use the SortedList's built-in min and max value property */
     public PlayingCard Highest => list.Max;
     public PlayingCard Lowest => list.Min;
+
+    public override string ToString()
+    {
+        string ret = "";
+        foreach (var card in list)
+        {
+            ret += card;
+        }
+        return ret += "\n";
+    }
 }

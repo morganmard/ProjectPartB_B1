@@ -64,7 +64,6 @@ class Program
 		return false;
 	}
 
-
 	private static void Deal(DeckOfCards myDeck, int nrCardsToPlayer, HandOfCards player1, HandOfCards player2)
 	{
 		Console.WriteLine();
@@ -85,21 +84,8 @@ class Program
 
 	private static void DetermineWinner(HandOfCards player1, HandOfCards player2)
 	{
-		Console.WriteLine("Player one's cards: ");
-		foreach (var card in player1.list)
-		{
-			Console.Write(card);
-			Console.Write(", ");
-		}
-
-		Console.WriteLine("\nPlayer two's cards:");
-
-		foreach (var card in player2.list)
-		{
-			Console.Write(card);
-			Console.Write(", ");
-		}
-		Console.WriteLine();
+		Console.WriteLine($"Player one's cards: {player1}");
+		Console.WriteLine($"Player one's cards: {player2}");
 
 		/* Check the highest card of both players and compare them */
 		int winner = player1.Highest.Value - player2.Highest.Value;
@@ -107,9 +93,9 @@ class Program
 		/* Print the winner based on the compare above */
 		Console.WriteLine(winner switch
 		{
-			< 0 => "Player 2 won",
-			0 => "It's a draw",
-			> 0 => "Player 1 won",
+			< 0 => "Player 2 won\n",
+			0 => "It's a draw\n",
+			> 0 => "Player 1 won\n",
 		});
 
 
